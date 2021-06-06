@@ -12,26 +12,27 @@ read
 fdisk -l
 lsblk
 
+
 echo Boot partition:
 read BOOTPART
-
-CMD="mkdir /mnt/boot && mount /dev/$BOOTPART /mnt/boot"
-read && eval "$CMD"
 
 echo Swap partition:
 read SWAPPART
 
-CMD="swapon /dev/$SWAPPART"
-read && $CMD
-
 echo Root partition:
 read ROOTPART
+
+echo Home partition:
+read HOMEPART
 
 CMD="mount /dev/$ROOTPART /mnt"
 read && $CMD
 
-echo Home partition:
-read HOMEPART
+CMD="mkdir /mnt/boot && mount /dev/$BOOTPART /mnt/boot"
+read && eval "$CMD"
+
+CMD="swapon /dev/$SWAPPART"
+read && $CMD
 
 CMD="mkdir /mnt/home && mount /dev/$HOMEPART /mnt/home"
 read && $CMD
