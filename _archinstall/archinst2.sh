@@ -39,7 +39,7 @@ cat /etc/hosts
 CMD="passwd"
 read && $CMD
 
-CMD="pacman -Syyu grub nano vi vim networkmanager sudo man gpm rsync openssh pacman-contrib pacutils base-devel git reflector"
+CMD="pacman -Syyu grub nano vi vim networkmanager sudo man gpm rsync openssh pacman-contrib pacutils base-devel git reflector efibootmgr"
 read && $CMD
 
 lsblk
