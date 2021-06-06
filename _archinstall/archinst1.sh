@@ -12,12 +12,6 @@ read
 fdisk -l
 lsblk
 
-echo Root partition:
-read ROOTPART
-
-CMD="mount /dev/$ROOTPART /mnt"
-read && $CMD
-
 echo Boot partition:
 read BOOTPART
 
@@ -29,6 +23,19 @@ read SWAPPART
 
 CMD="swapon /dev/$SWAPPART"
 read && $CMD
+
+echo Root partition:
+read ROOTPART
+
+CMD="mount /dev/$ROOTPART /mnt"
+read && $CMD
+
+echo Home partition:
+read HOMEPART
+
+CMD="mount /dev/$HOMEPART /mnt/home"
+read && $CMD
+
 
 lsblk
 
