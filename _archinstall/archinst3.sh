@@ -13,7 +13,7 @@ grep -A 3 -B 3 WaylandEnable /etc/gdm/custom.conf
 CMD="sudo systemctl enable gdm"
 read && $CMD
 
-echo Install pamac...
+echo Install yay...
 read
 
 cd ~
@@ -49,7 +49,7 @@ read && $CMD
 CMD="yay -S optimus-manager optimus-manager-qt gdm-prime"
 read && $CMD
 
-CMD="sudo pacman -S wget mc htop xdg-user-dirs gnome-screenshot hexchat paprefs pavucontrol mpv bash-completion coreutils docker doublecmd-gtk2 baobab gnome-font-viewer gparted meld calc gnome-calculator breeze-icons kolourpaint drawing"
+CMD="sudo pacman -S wget mc htop xdg-user-dirs gnome-screenshot hexchat paprefs pavucontrol mpv bash-completion coreutils docker doublecmd-gtk2 baobab gnome-font-viewer gparted meld calc gnome-calculator breeze-icons kolourpaint drawing ttf-dejavu gnome-tweaks"
 read && $CMD
 
 CMD="yay -S icaclient hdx-realtime-media-engine teamviewer zoom skypeforlinux-stable-bin"
