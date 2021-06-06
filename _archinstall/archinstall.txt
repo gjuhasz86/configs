@@ -1,0 +1,89 @@
+#ARCH install
+
+# FilesSystem KB
+# non-persistent: /dev /run /sys /tmp /proc 
+
+cp <remote>/archinstall.txt .
+
+gpm -m /dev/input/mouse0 -t ps2
+
+ip a
+
+ping archlinux.org
+
+timedatectl set-ntp true
+timedatectl status
+
+fdisk -l
+lsblk
+
+mfks.ext4 /dev/vda1
+mkswap /dev/vda2
+swapon /dev/vda2
+mount /dev/vda1 /mnt
+
+pacman -Sy pacman-contrib
+
+curl -s "https://www.archlinux.org/mirrorlist/?country=HU&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 5 - > /etc/pacman.d/mirrorlist
+
+pacstrap /mnt base linux linux-firmware nano vim networkmanager sudo man gpm openssh
+
+genfstab -U /mnt >> /mnt/etc/fstab
+
+arch-chroot /mnt
+
+
+##########################################
+### in chroot                          ###
+##########################################
+
+ln -sf /usr/share/zoneinfo/Europe/Budapest /etc/localtime
+
+hwclock --systohc
+
+cp /etc/locale.gen /etc/locale.gen.bak
+sed -E 's/^#(en_US.UTF-8 UTF-8  )$/\1/g' /etc/locale.gen.bak > /etc/locale.gen
+
+grep -A3 -B3 'en_US.UTF-8' /etc/locale.gen
+
+locale-gen
+
+echo 'LANG=en_US.UTF-8' > /etc/locale.conf
+
+echo 'arch-vbox' > /etc/hostname
+
+echo '127.0.0.1 localhost' >> /etc/hosts
+echo '::1	localhost' >> /etc/hosts
+echo '127.0.1.1 arch-vbox.localdomain arch-vbox' >> /etc/hosts
+
+cat /etc/hosts
+
+passwd
+
+pacman -S grub
+
+grub-install /dev/vda
+
+grub-mkconfig -o /boot/grub/grub.cfg
+
+systemctl enable NetworkManager
+
+echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
+visudo -c -f /etc/sudoers
+
+useradd -m -G wheel jay
+passwd jay
+
+
+sudo pacman -S xorg-server gnome-shell gdm terminator nautilus
+
+sudo systemctl enable gdm
+
+
+
+## FS watch
+sudo pacman -S inotify-tools
+inotifywait -r -m / -e modify,create,delete --exclude '^/home/jay/watch.txt$|^/dev' --timefmt '%Y%m%d.%H%M%S' --format '%T %e %w%f' -o watch.txt &
+
+
+
