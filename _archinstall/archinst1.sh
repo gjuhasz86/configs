@@ -33,7 +33,7 @@ read && $CMD
 lsblk
 
 echo Ranking mirrors for HU
-COUNTRYCODE=HU
+COUNTRY=Hungary
 read
 
 reflector -c $COUNTRY -a 6 --sort rate --save /etc/pacman.d/mirrorlist
