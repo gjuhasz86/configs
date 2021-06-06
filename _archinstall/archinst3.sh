@@ -55,6 +55,9 @@ read && $CMD
 CMD="yay -S icaclient hdx-realtime-media-engine teamviewer zoom skypeforlinux-stable-bin"
 read && $CMD
 
+CMD="sudo sed --in-place '/^#WaylandEnable/s/^#//' /etc/gdm/custom.conf"
+read && eval $CMD
+
 CMD="grep -A 3 -B 3 WaylandEnable /etc/gdm/custom.conf"
 read && $CMD
 
