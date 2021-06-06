@@ -35,7 +35,7 @@ CMD="swapon /dev/$SWAPPART"
 read && $CMD
 
 CMD="mkdir /mnt/home && mount /dev/$HOMEPART /mnt/home"
-read && eva "$CMD"
+read && eval "$CMD"
 
 
 lsblk
