@@ -61,4 +61,22 @@ read && eval $CMD
 CMD="grep -A 3 -B 3 WaylandEnable /etc/gdm/custom.conf"
 read && $CMD
 
-# text viewer
+
+# Install a virtual machine
+
+CMD="sudo pacman -S qemu virt-manager"
+read && $CMD
+
+CMD="sudo systemctl start libvirtd.service"
+read && $CMD
+
+# Install Nix
+
+CMD="yay -S nix archlinux-nix"
+read && $CMD
+
+CMD="sudo archlinux-nix setup-build-group && sudo archlinux-nix bootstrap"
+read && $CMD
+
+CMD="sudo nix-channel --add https://nixos.org/channels/nixpkgs-unstable && sudo nix-channel --update && nix-env -u"
+read && $CMD
