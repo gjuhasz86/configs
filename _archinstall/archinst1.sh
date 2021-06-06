@@ -33,7 +33,7 @@ read && $CMD
 echo Home partition:
 read HOMEPART
 
-CMD="mount /dev/$HOMEPART /mnt/home"
+CMD="mkdir /mnt/home && mount /dev/$HOMEPART /mnt/home"
 read && $CMD
 
 
