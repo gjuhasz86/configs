@@ -17,24 +17,13 @@ echo Install pamac...
 read
 
 cd ~
-git clone https://aur.archlinux.org/pamac-aur.git
-cd pamac-aur
+git clone https://aur.archlinux.org/yay
+cd yay
 makepkg -csir
 cd ..
-rm -rf pamac-aur
+rm -rf yay
 
-CMD="sudo sed --in-place 's/#EnableAUR/EnableAUR/' /etc/pamac.conf"
-read && eval $CMD
-
-CMD="sudo sed --in-place 's/#CheckAURUpdates/CheckAURUpdates/' /etc/pamac.conf"
-read && eval $CMD
-
-sudo grep -A 1 -B 1 AUR /etc/pamac.conf
-
-CMD="pamac update"
-read && $CMD
-
-CMD="pamac install google-chrome chrome-gnome-shell"
+CMD="yay -S google-chrome chrome-gnome-shell"
 read && $CMD
 
 # echo Install liveroot...
@@ -57,13 +46,13 @@ read && $CMD
 # sudo sed --in-place '/^MODULES/s/)/ zram overlay)/' /etc/mkinitcpio.conf
 # sudo mkinitcpio -p linux
 
-CMD="pamac install optimus-manager optimus-manager-qt gdm-prime"
+CMD="yay -S optimus-manager optimus-manager-qt gdm-prime"
 read && $CMD
 
 CMD="sudo pacman -S wget mc htop xdg-user-dirs gnome-screenshot hexchat paprefs pavucontrol mpv bash-completion coreutils docker doublecmd-gtk2 baobab gnome-font-viewer gparted meld calc gnome-calculator breeze-icons kolourpaint drawing"
 read && $CMD
 
-CMD="pamac install icaclient hdx-realtime-media-engine teamviewer zoom skypeforlinux-stable-bin"
+CMD="yay -S icaclient hdx-realtime-media-engine teamviewer zoom skypeforlinux-stable-bin"
 read && $CMD
 
 CMD="grep -A 3 -B 3 WaylandEnable /etc/gdm/custom.conf"
