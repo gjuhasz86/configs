@@ -76,7 +76,7 @@ CMD="yay -S nix archlinux-nix"
 read && $CMD
 
 CMD="sudo archlinux-nix setup-build-group && sudo archlinux-nix bootstrap"
-read && $CMD
+read && eval $CMD
 
 CMD="sudo nix-channel --add https://nixos.org/channels/nixpkgs-unstable && sudo nix-channel --update && nix-env -u"
-read && $CMD
+read && eval $CMD
