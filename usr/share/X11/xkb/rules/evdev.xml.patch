@@ -1,0 +1,33 @@
+--- /usr/share/X11/xkb/rules/evdev.xml	2021-09-15 00:53:38.929293689 +0200
++++ evdev.xml	2021-09-15 00:55:07.620049692 +0200
+@@ -1517,6 +1517,30 @@
+     </layout>
+     <layout>
+       <configItem>
++        <name>us_hu</name>
++        <!-- Keyboard indicator for Hunglish layouts -->
++        <shortDescription>us</shortDescription>
++        <description>Hunglish</description>
++        <languageList>
++          <iso639Id>eng</iso639Id>
++        </languageList>
++      </configItem>
++      <variantList>
++        <variant>
++          <configItem>
++            <name>auto</name>
++            <!-- Keyboard indicator for Hunlish (auto) layouts -->
++            <shortDescription>hu</shortDescription>
++            <description>Hunglish (auto)</description>
++            <languageList>
++              <iso639Id>eng</iso639Id>
++            </languageList>
++          </configItem>
++        </variant>
++      </variantList>
++    </layout>
++    <layout>
++      <configItem>
+         <name>af</name>
+         <!-- Keyboard indicator for Afghani layouts -->
+         <shortDescription>fa</shortDescription>

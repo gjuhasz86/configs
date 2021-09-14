@@ -1,0 +1,18 @@
+--- /usr/share/X11/xkb/rules/base.lst	2021-06-09 21:37:45.000000000 +0200
++++ base.lst	2021-09-15 00:10:28.325887626 +0200
+@@ -192,6 +192,7 @@
+ 
+ ! layout
+   us              English (US)
++  us_hu           Hunglish
+   af              Afghani
+   ara             Arabic
+   al              Albanian
+@@ -317,6 +318,7 @@
+   norman          us: English (Norman)
+   workman         us: English (Workman)
+   workman-intl    us: English (Workman, intl., with dead keys)
++  auto            us_hu: Hunglish (auto)
+   ps              af: Pashto
+   uz              af: Uzbek (Afghanistan)
+   olpc-ps         af: Pashto (Afghanistan, OLPC)

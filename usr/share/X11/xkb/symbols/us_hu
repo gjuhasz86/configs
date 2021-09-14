@@ -1,0 +1,34 @@
+default partial
+xkb_symbols "basic" {
+    include "us(basic)"
+    include "level3(ralt_switch)"
+    name[Group1] = "Hunglish";
+
+    key <AD08> {[            i,          I,       iacute,       Iacute ]};
+    key <AE10> {[            0, parenright,   odiaeresis,   Odiaeresis ]};
+    key <AE11> {[        minus, underscore,   udiaeresis,   Udiaeresis ]};
+    key <AE12> {[        equal,       plus,       oacute,       Oacute ]};
+    key <AD11> {[  bracketleft,  braceleft, odoubleacute, Odoubleacute ]};
+    key <AD12> {[ bracketright, braceright,       uacute,       Uacute ]};
+    key <AC10> {[    semicolon,      colon,       eacute,       Eacute ]};
+    key <AC11> {[   apostrophe,   quotedbl,       aacute,       Aacute ]};
+    key <BKSL> {[    backslash,        bar, udoubleacute, Udoubleacute ]};
+
+};
+
+xkb_symbols "auto" {
+    include "us(basic)"
+    include "level3(ralt_switch)"
+    name[Group1] = "Hunglish (auto)";
+
+    key <LSGT> {[       iacute,       Iacute                           ]};
+    key <AE10> {[   odiaeresis,   Odiaeresis,            0, parenright ]};
+    key <AE11> {[   udiaeresis,   Udiaeresis,        minus, underscore ]};
+    key <AE12> {[       oacute,       Oacute,        equal,       plus ]};
+    key <AD11> {[ odoubleacute, Odoubleacute,  bracketleft,  braceleft ]};
+    key <AD12> {[       uacute,       Uacute, bracketright, braceright ]};
+    key <AC10> {[       eacute,       Eacute,    semicolon,      colon ]};
+    key <AC11> {[       aacute,       Aacute,   apostrophe,   quotedbl ]};
+    key <BKSL> {[ udoubleacute, Udoubleacute,    backslash,        bar ]};
+
+};
