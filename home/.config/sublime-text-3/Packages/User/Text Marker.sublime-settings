@@ -1,0 +1,9 @@
+/*
+	Text Marker user settings in here override the default
+*/
+{
+	"user": {
+		"when_selection_is_empty": false,
+		"live_color": "gold",
+	}
+}

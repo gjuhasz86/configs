@@ -1,0 +1,7 @@
+[
+	{"keys": ["alt+m", "1"], "command": "text_marker", "args": {"color": "aqua"}},
+	{"keys": ["alt+m", "2"], "command": "text_marker", "args": {"color": "#007bff"}},
+	{"keys": ["alt+m", "3"], "command": "text_marker", "args": {"color": "#6f42c1"}},
+	{"keys": ["alt+m", "4"], "command": "text_marker", "args": {"color": "deeppink"}},
+	{"keys": ["alt+m", "5"], "command": "text_marker", "args": {"color": "red"}}
+]
